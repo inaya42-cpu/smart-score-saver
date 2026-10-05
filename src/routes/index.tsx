@@ -154,7 +154,7 @@ function Index() {
             <h2 className="text-2xl font-semibold">Your exams</h2>
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-sm">
-                <thead><tr className="text-left text-muted-foreground"><th className="py-2 pr-3">Exam</th>{SUBJECTS.map((s) => <th key={s.key} className="pr-3">{s.name.split("-")[0].slice(0, 6)}</th>)}<th /></tr></thead>
+                <thead><tr className="text-left text-muted-foreground"><th className="py-2 pr-3">Exam</th>{SUBJECTS.map((s) => <th key={s.key} className="pr-3">{s.name.slice(0, 6)}</th>)}<th /></tr></thead>
                 <tbody>
                   {sortExams(exams).map((e) => (
                     <tr key={e.id} className="border-t">

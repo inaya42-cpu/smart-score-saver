@@ -51,8 +51,8 @@ export function analyse(exams: Exam[], targets: Record<SubjectKey, number>): Sub
     if (!series.length)
       return { key, name, series, avg: 0, latest: 0, trend: 0, target, gap: target, predicted: 0, status: "No data" as const };
     const avg = Math.round((series.reduce((a, b) => a + b, 0) / series.length) * 10) / 10;
-    const latest = series[series.length - 1];
-    const trend = Math.round((latest - series[0]) * 10) / 10;
+    const latest = series[series.length - 1]!;
+    const trend = Math.round((latest - series[0]!) * 10) / 10;
     const gap = Math.round((target - latest) * 10) / 10;
     const predicted = Math.max(0, Math.min(100, Math.round((latest * 0.7 + avg * 0.3 + Math.max(-5, Math.min(5, trend / 2))) * 10) / 10));
     const status = gap <= 0 ? "On track" : gap <= 7 ? "Close" : "Weak";
